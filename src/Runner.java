@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Runner {
 
     public static void main(String[] args) {
@@ -5,5 +7,7 @@ public class Runner {
         Writer write = new Writer();
 
         write.writeToFile("NewFile.txt","Here is some text!");
+
+        Scanner input = new Scanner(System.in);
     }
 }
