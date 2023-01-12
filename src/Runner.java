@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Runner {
@@ -6,8 +7,15 @@ public class Runner {
         Reader read = new Reader();
         Writer write = new Writer();
 
-        write.writeToFile("NewFile.txt","Here is some text!");
+        ArrayList<String> data = new ArrayList<>();
+        data.add("Hello");
+        data.add("welcome");
+        data.add("to");
+        data.add("my");
+        data.add("file!");
 
-        Scanner input = new Scanner(System.in);
+        write.writeToFile("DelimiterFile.txt", data, "/");
+        read.readFromFile("DelimiterFile.txt","/");
+
     }
 }
