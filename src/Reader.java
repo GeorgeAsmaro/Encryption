@@ -8,7 +8,7 @@ public class Reader {
             FileReader reader = new FileReader(fileName);
             Scanner read = new Scanner(reader);
 
-            
+
             read.close();
 
         } catch(IOException e) {
