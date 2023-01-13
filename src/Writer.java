@@ -5,9 +5,16 @@ import java.util.ArrayList;
 
 public class Writer {
 
-    public void writeToFile(String filename, String data) {
+    /**
+     Write data to fileName file, either overriding or appending
+     * @param fileName      The name of the file to write to
+     * @param data          The data to be written
+     * @param appendData    True = append data, False = overwrite data
+     */
+    public void writeToFile(String fileName, String data, boolean appendData) {
+
         try {
-            PrintWriter write = new PrintWriter(new FileWriter(filename, true));
+            PrintWriter write = new PrintWriter(new FileWriter(fileName, appendData));
             write.println(data);
 
             write.close();
@@ -16,15 +23,20 @@ public class Writer {
         }
     }
 
-    public void writeToFile(String filename, ArrayList<String> data, String delimiter) {
+    /**
+     *
+     * @param fileName      File name
+     * @param contents      ArrayList contents
+     * @param appendData    True = append data, False = overwrite data
+     */
+    public void writeToFile(String fileName, ArrayList<String> contents, boolean appendData) {
         try {
-            PrintWriter write = new PrintWriter(new FileWriter(filename, false));
+            PrintWriter write = new PrintWriter(new FileWriter(fileName, false));
 
-            for(String token : data) {
-                write.print(token + delimiter);
+            for(String data : contents) {
+                write.println(data);
 
             }
-
             write.close();
 
         } catch(IOException exception) {
